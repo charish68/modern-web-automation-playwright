@@ -23,6 +23,16 @@ jobs:
           pip install pytest pytest-playwright playwright allure-pytest pytest-xdist
           playwright install --with-deps
 
+      - name: Show project structure (debug)
+        run: |
+          pwd
+          ls -R
+
+      - name: Run tests
+        run: |
+          pytest tests --browser chromium --alluredir=allure-results
+
+
       - name: Run tests
         run: |
           pytest --browser chromium --alluredir=allure-results
